@@ -1,0 +1,11 @@
+{
+  "name": "scratchpay",
+  "version": "1.0.0",
+  "description": "Scratchpay Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Leandro Gehlen",
+  "license": "MIT"
+}
