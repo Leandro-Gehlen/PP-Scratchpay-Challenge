@@ -1,11 +1,25 @@
 {
   "name": "scratchpay",
   "version": "1.0.0",
+  "husky":{
+    "hooks":{
+      "pre-commit": "npm test"
+    }
+  },
   "description": "Scratchpay Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": " jest --all.",
+    "lint": "eslint --fix  --ext .ts ",
+    "prepare": "husky install"
   },
   "author": "Leandro Gehlen",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  }
 }
