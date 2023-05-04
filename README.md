@@ -10,7 +10,7 @@
 
 > **Important**
 >
-> - The package manager that should be used is **npm**. /n
+> - The package manager that should be used is **npm**. </br>
 >   Otherwise husky might not run as expected. Yarn has a different approach to start husky.
 
 - I have prepared the project to run eslint , prettier and jest on my vscode.
