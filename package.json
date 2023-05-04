@@ -9,9 +9,9 @@
   "description": "Scratchpay Challenge",
   "main": "index.js",
   "scripts": {
-    "test": " jest --all.",
-    "lint": "eslint --fix  --ext .ts ",
-    "prepare": "husky install"
+    "test": " jest --watchAll.",
+    "lint": "eslint --fix  --ext .ts "
+    
   },
   "author": "Leandro Gehlen",
   "license": "MIT",
