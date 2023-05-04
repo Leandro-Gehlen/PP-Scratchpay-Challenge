@@ -4,11 +4,13 @@
 
 ---
 
+## Preparing the project to this challenge
+
 ### Eslint + Prettier + Husky + Lint-Staged + Jest
 
 > **Important**
 >
-> - The package manager that should be used is npm.
+> - The package manager that should be used is **npm**. /n
 >   Otherwise husky might not run as expected. Yarn has a different approach to start husky.
 
 - I have prepared the project to run eslint , prettier and jest on my vscode.
