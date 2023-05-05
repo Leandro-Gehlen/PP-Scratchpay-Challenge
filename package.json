@@ -4,7 +4,7 @@
   "description": "Scratchpay Challenge",
   "main": "index.js",
   "scripts": {
-    "test": " jest ",
+    "test": " jest --watchAll",
     "prepare": "husky install",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix"
