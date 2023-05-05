@@ -13,7 +13,7 @@
     "*.ts": [
       "eslint ./src --ext .ts --fix",
       "git add .",
-      "jest  --bail --findRelatedTests"
+      "jest  --bail --findRelatedTests --passWithNoTests"
     ]
   },
   "author": "Leandro Gehlen",
