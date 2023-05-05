@@ -1,4 +1,5 @@
 import { DentalEntity, EnumEntityCategory } from "@/domain-layer/entities";
+import { HttpResponseType } from "./contracts/http-response.contract";
 
 export interface IDentalHelperService {
   dentalHelper(query: DentalEntity): Promise<HttpResponseType>;
@@ -17,10 +18,6 @@ export class DentalHelperService implements IDentalHelperService {
   }
 }
 
-export type HttpResponseType = {
-  statusCode: number;
-  data: Array<DentalEntity>;
-};
 // ---------------------------- Production Code ----------------------------
 const sutFactory = () => {
   const sut = new DentalHelperService();
@@ -36,7 +33,7 @@ describe("DentalHelperService class as SUT", () => {
     const hasMethod = await sut.dentalHelper(arg);
     expect(hasMethod).toStrictEqual(await sut.dentalHelper(arg));
   });
-  it("Should return an HttpResponseContract", async () => {
+  it("Should return an HttpResponseType", async () => {
     const sut = sutFactory();
     const arg: DentalEntity = {
       category: EnumEntityCategory.DENTAL,
@@ -46,5 +43,13 @@ describe("DentalHelperService class as SUT", () => {
       data: [arg],
     };
     expect(await sut.dentalHelper(arg)).toStrictEqual(HttpResponse);
+  });
+  it("Should receive at least category as an arg to dentalHelper method", async () => {
+    const sut = sutFactory();
+    const arg: DentalEntity = {
+      category: EnumEntityCategory.DENTAL,
+    };
+    sut.dentalHelper(arg);
+    expect(arg.category).toBe(EnumEntityCategory.DENTAL);
   });
 });
