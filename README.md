@@ -36,4 +36,9 @@
 - **dental**
 - **vet**
 
-### Use Cases
+### Dental Use Cases
+
+> **Receiving only name as a query param.**
+>
+> - Should identify that only a name param was passed.
+> - Should send to the right usecase, that will receive an instance of the right repository
