@@ -22,7 +22,7 @@
 
 ### Assumptions
 
-- This challenge must have just one endpoint, so **I will assum** that the frontend will be sending also the category of the clinic on the request. If it´s a **health care** or a **vet** category.
+- This challenge must have just one endpoint, so **I will assum** that the frontend will be sending also the category of the clinic on the request. If it´s a **dental care** or a **vet** category.
 - So I now have my **2 entites**. I also know now that I will need a **middleware** to know which entity the request is about.
 - I will also need a **validation middleware**. It´s better if I make validations outside and before the controller **and even before I know which kind of entity the request is about**. Remember, controllers should not know about the domain layer.
 - Once the request reachs the controller, I will already know the entity it´s about and also that I have all the params that I need to manage data as requested on the challenge.
@@ -33,7 +33,7 @@
 
 ### Entities
 
-- **health**
+- **dental**
 - **vet**
 
 ### Use Cases

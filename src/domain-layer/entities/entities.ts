@@ -1,4 +1,4 @@
-export type HealthEntity = {
+export type DentalEntity = {
   name: string;
   stateName: string;
   availability: AvailabilityType;
