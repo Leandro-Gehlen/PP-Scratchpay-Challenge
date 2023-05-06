@@ -16,9 +16,13 @@
 - I have prepared the project to run eslint , prettier and jest on my vscode.
   Also, to ensure that the code that is been commited to this github repo have prettier and lint applied, I´ve configured Husky to run lint-staged that runs eslint , prettier and tests before any commit.
 
-  ![husky](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/husky-works.jpg)
+---
+
+![husky](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/husky-works.jpg)
 
 ---
+
+## ![testfailure](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/test-fails.jpg)
 
 ## First things First. Let´s think!
 
