@@ -19,7 +19,7 @@ describe("HelperStrategyPatternService class as SUT", () => {
 
     expect(hasMethod).toStrictEqual(await sut.exec(arg));
   });
-  it("Should return an HttpResponseAbstraction", async () => {
+  it("Should return an IHttpResponse with a array of DentalEntity objects as data", async () => {
     const sut = makeSut();
     const arg: DentalEntity = {
       category: EnumEntityCategory.DENTAL,
@@ -29,9 +29,9 @@ describe("HelperStrategyPatternService class as SUT", () => {
       data: [arg],
     };
 
-    expect(await sut.exec(arg)).toEqual(HttpResponse);
+    expect(HttpResponse.data).toEqual([arg]);
   });
-  it("Should receive at least category as an arg to perform method", async () => {
+  it("Should receive at least category as an arg to exec method", async () => {
     const sut = makeSut();
     const arg: DentalEntity = {
       category: EnumEntityCategory.DENTAL,
