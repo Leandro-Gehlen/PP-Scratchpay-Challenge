@@ -1,4 +1,8 @@
-import { DentalEntity, EnumEntityCategory } from "@/domain-layer/entities";
+import {
+  DentalEntity,
+  EnumEntityCategory,
+  VetEntity,
+} from "@/domain-layer/entities";
 import { HelperStrategyPatternService } from "@/application-layer/services/helper-strategy-pattern-service/helper-strategy-pattern.service";
 import { IHttpResponse } from "@/application-layer/contracts/http-response.contract";
 import { IHelperStrategyPatternService } from "@/domain-layer/usecases/interfaces/helper-strategy-pattern-service-interface/helper-strategy-pattern-service.interface";
@@ -49,13 +53,32 @@ describe("HelperStrategyPatternService class as SUT", () => {
 
     expect((await sut.exec(httpRequest)).data).toEqual([arg]);
   });
-  it("Should receive at least category as an arg to exec method", async () => {
+  it("Should return status 200 if Dental category is passed on request and also return an array of DentalEntity as data", async () => {
     const sut = makeSut();
+    const httpRequest: IHttpRequest = {
+      category: EnumEntityCategory.DENTAL,
+    };
     const arg: DentalEntity = {
       category: EnumEntityCategory.DENTAL,
     };
-    sut.exec(arg);
+    const statusCoderesult = (await sut.exec(httpRequest)).statusCode;
+    const dataResult = (await sut.exec(httpRequest)).data;
 
-    expect(arg.category).toBe(EnumEntityCategory.DENTAL);
+    expect(statusCoderesult).toBe(200);
+    expect(dataResult).toStrictEqual([arg]);
   });
+  /*   it("Should return status 200 if Vet category is passed on request and also return an array of VetEntity as data", async () => {
+    const sut = makeSut();
+    const httpRequest: IHttpRequest = {
+      category: EnumEntityCategory.VET,
+    };
+    const arg: VetEntity = {
+      category: EnumEntityCategory.VET,
+    };
+    const statusCoderesult = (await sut.exec(httpRequest)).statusCode;
+    const dataResult = (await sut.exec(httpRequest)).data;
+
+    expect(statusCoderesult).toBe(200);
+    expect(dataResult).toStrictEqual([arg]);
+  }); */
 });
