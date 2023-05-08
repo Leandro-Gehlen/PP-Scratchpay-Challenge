@@ -1,8 +1,9 @@
 export type DentalEntity = {
-  category: EnumEntityCategory;
+  category: EnumEntityCategory.DENTAL;
   name?: string;
   stateName?: string;
   availability?: AvailabilityType;
+  opening?: OpeningType;
 };
 
 export type VetEntity = {
@@ -10,6 +11,7 @@ export type VetEntity = {
   clinicName?: string;
   stateCode?: string;
   opening?: OpeningType;
+  availability?: AvailabilityType;
 };
 
 export type AvailabilityType = {

@@ -8,8 +8,8 @@ export class HelperStrategyPatternService
   implements IHelperStrategyPatternService
 {
   constructor(
-    private readonly vetCategory?: IUseCaseService,
-    private readonly dentalCategory?: IUseCaseService,
+    private readonly vetCategoryService?: IUseCaseService,
+    private readonly dentalCategoryService?: IUseCaseService,
   ) {}
   async exec(httpRequest: IHttpRequest): Promise<IHttpResponse> {
     if (Object.keys(httpRequest).length === 0) {
@@ -19,22 +19,13 @@ export class HelperStrategyPatternService
       throw new Error("A category must be provided");
     }
 
-    let setCategory: EnumEntityCategory;
     switch (httpRequest.category) {
       case EnumEntityCategory.DENTAL:
-        setCategory = EnumEntityCategory.DENTAL;
-        break;
+        return this.dentalCategoryService?.exec(httpRequest);
       case EnumEntityCategory.VET:
-        setCategory = EnumEntityCategory.VET;
-        break;
+        return this.vetCategoryService?.exec(httpRequest);
+      default:
+        throw new Error("A category must be provided");
     }
-    return {
-      statusCode: 200,
-      data: [
-        {
-          category: setCategory,
-        },
-      ],
-    };
   }
 }

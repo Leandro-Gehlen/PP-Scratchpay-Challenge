@@ -1,3 +1,3 @@
 import { VetEntity } from "@/domain-layer/entities";
 
-export type VetEntityContractAppLayer = VetEntity;
+export type VetEntityAppLayerAbstraction = VetEntity;
