@@ -2,9 +2,10 @@ import { IVetRepositoryInfraLayer } from "@/application-layer/services/interface
 import { VetEntityInfraLayerAbstraction } from "../contracts-infra-layer/vet-entity.contract";
 import { IHttpResponse } from "@/application-layer/contracts/http-response.contract";
 import axios from "axios";
+import { IHttpRequest } from "@/application-layer/contracts/http-request.contract";
 export class VetRepositoryInfraLayer implements IVetRepositoryInfraLayer {
   async exec(
-    httpResponse: IHttpResponse,
+    httpRequest: IHttpRequest,
   ): Promise<Array<VetEntityInfraLayerAbstraction>> {
     throw new Error("waiting data");
   }
