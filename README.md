@@ -100,6 +100,12 @@
 
 ---
 
+> **ChangeArrKeyHelperFunction**
+>
+> - Should receive a newKey, a oldKey and an array as args and return a new array with those keys exchaged.(Transform opening to availability on vet json data received)
+
+---
+
 ## Clean Architecture Application Works! (Decoupled and Testable code)
 
 ---
