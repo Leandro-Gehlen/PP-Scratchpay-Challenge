@@ -48,7 +48,56 @@
 >
 > - Should identify which entity the request is about.
 > - Should send to the right usecase.
+> - Should return an IHttpResponse with pagination applied.
 
 ---
 
-> **Only a name class use case**
+> **VetCategory use case**
+>
+> - Should choose the right pagination adapter method to receive the rigth pagination applied.
+> - Should return an IHttpResponse with the right pagination applied.
+
+---
+
+> **DentalCategory use case**
+>
+> - Should choose the right pagination adapter method to receive the rigth pagination applied.
+> - Should return an IHttpResponse with the right pagination applied.
+
+---
+
+> **VetPAginationAdapter**
+>
+> - Should implement the pagination
+> - Should return an IHttpResponse with the right pagination applied to the array of VetEntities
+
+---
+
+> **DentalPaginationAdapter**
+>
+> - Should implement the pagination
+> - Should return an IHttpResponse with the right pagination applied to the array of DentalEntities
+
+---
+
+> **VetRepository**
+>
+> -Should receive data and change it´s parameter from "opening" to "availability"
+> -Should return the new data as an IHttpResponse so pagination can be applied on VetPaginationAdapter class
+
+---
+
+> **DentalRepository**
+>
+> - Should receive data
+> - Should return the new data as an IHttpResponse so paginantion can be applied on the DentalPaginationAdapter class
+
+---
+
+> **ResquestDataValidationMiddleware**
+>
+> - Should ensure that at least a category will be received as param on body request.
+
+---
+
+## Clean Architecture Application Works! (Decoupled and Testable code)
