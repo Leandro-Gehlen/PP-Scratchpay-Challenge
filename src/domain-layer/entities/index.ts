@@ -1,1 +1,1 @@
-export * from "@/domain-layer/entities/entities";
+export * from "../entities/entities";

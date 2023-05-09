@@ -1,6 +1,6 @@
-import { IHttpRequest } from "@/application-layer/contracts/http-request.contract";
-import { IHttpResponse } from "@/application-layer/contracts/http-response.contract";
-import { IVetAdapterService } from "@/domain-layer/usecases/interfaces/vet-adapter-service-interface/vet-adapter-service.interface";
+import { IHttpRequest } from "../../contracts/http-request.contract";
+import { IHttpResponse } from "../../contracts/http-response.contract";
+import { IVetAdapterService } from "../../../domain-layer/usecases/interfaces/vet-adapter-service-interface/vet-adapter-service.interface";
 import { IVetRepositoryInfraLayer } from "../interfaces/vet-repository-infra-layer-interface/vet-repository-infralayer.interface";
 
 export class VetAdapterService implements IVetAdapterService {
@@ -8,6 +8,10 @@ export class VetAdapterService implements IVetAdapterService {
     private readonly vetRepositoryInfraLayer: IVetRepositoryInfraLayer,
   ) {}
   async exec(httpRequest: IHttpRequest): Promise<IHttpResponse> {
-    return await this.vetRepositoryInfraLayer.exec(httpRequest);
+    const data = await this.vetRepositoryInfraLayer.exec();
+    return {
+      statusCode: 200,
+      data,
+    };
   }
 }

@@ -1,4 +1,4 @@
-import { DentalEntity, VetEntity } from "@/domain-layer/entities";
+import { DentalEntity, VetEntity } from "../../domain-layer/entities";
 
 export type IHttpResponse = {
   statusCode: number;

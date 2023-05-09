@@ -8,7 +8,7 @@ export class SearchController implements IController {
     private readonly helperStrategyPatternService: IHelperStrategyPatternService,
   ) {}
 
-  handle(httpRequest: IHttpRequest): Promise<IHttpResponse> {
-    return this.helperStrategyPatternService.exec(httpRequest);
+  async handle(httpRequest: IHttpRequest): Promise<IHttpResponse> {
+    return await this.helperStrategyPatternService.exec(httpRequest);
   }
 }

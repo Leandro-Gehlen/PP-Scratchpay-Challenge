@@ -1,10 +1,14 @@
-import { MakeSearchController } from "@/composition-root/factories/make-search-controller";
 import { Response, Router, Request } from "express";
-
+import { MakeSearchController } from "../../factories/make-search-controller";
 export default (router: Router): void => {
   router.get("/search", async (req: Request, res: Response) => {
-    const controller = MakeSearchController();
-    const httpResponse = await controller.handle(req.body);
-    res.json(httpResponse);
+    try {
+      const controller = MakeSearchController();
+      const httpResponse = await controller.handle(req.body);
+      return res.json(httpResponse);
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
   });
 };

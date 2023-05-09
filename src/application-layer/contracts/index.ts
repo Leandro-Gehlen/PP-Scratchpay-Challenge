@@ -1,1 +1,1 @@
-export * from "@/application-layer/contracts";
+export * from "../contracts";
