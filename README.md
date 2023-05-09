@@ -101,3 +101,19 @@
 ---
 
 ## Clean Architecture Application Works! (Decoupled and Testable code)
+
+---
+
+> ### **Receiving only vet category**
+
+---
+
+![onlyvet](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/vet-only-category-provided.jpg)
+
+---
+
+> ### **Receiving only dental category**
+
+---
+
+![onlyvet](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/vet-only-category-provided.jpg)
