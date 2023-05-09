@@ -6,9 +6,10 @@ export type DentalEntity = {
 };
 
 export type VetEntity = {
+  id: number;
   category: EnumEntityCategory;
   clinicName?: string;
-  stateCode?: string;
+  state?: string;
   availability?: AvailabilityType;
 };
 
