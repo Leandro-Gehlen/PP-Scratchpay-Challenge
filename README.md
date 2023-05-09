@@ -116,4 +116,4 @@
 
 ---
 
-![onlyvet](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/vet-only-category-provided.jpg)
+![onlyvet](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/dental-only-category-provided.jpg)
