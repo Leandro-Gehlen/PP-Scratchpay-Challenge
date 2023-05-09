@@ -12,14 +12,6 @@ export class HelperStrategyPatternService
     private readonly dentalCategoryService: IUseCaseService,
   ) {}
   async exec(httpRequest: IHttpRequest): Promise<IHttpResponse> {
-    console.log(httpRequest);
-    if (Object.keys(httpRequest).length === 0) {
-      throw new Error("At least a category must be provided");
-    }
-    if (!httpRequest.category) {
-      throw new Error("A category must be provided");
-    }
-
     switch (httpRequest.category) {
       case EnumEntityCategory.DENTAL:
         return this.dentalCategoryService.exec(httpRequest);
