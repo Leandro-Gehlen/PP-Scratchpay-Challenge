@@ -8,7 +8,7 @@
 
 - Note: Please use **npm** as a package manager
 
-> git clone https://github.com/Leandro-Gehlen/PP-Scratchpay-Challenge.git
+> git clone https://github.com/Leandro-Gehlen/PP-Scratchpay-Challenge.git </br>
 > npm install
 
 - See the section End to End test with insominia to know the body of the request that must be sent.
