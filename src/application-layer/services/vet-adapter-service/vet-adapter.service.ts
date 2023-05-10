@@ -126,7 +126,7 @@ export class VetAdapterService implements IVetAdapterService {
       } else {
         return {
           statusCode: 400,
-          BAD_REQUEST: "There is no clinics at this location on our data base.",
+          BAD_REQUEST: "No vet clinics available at the time range provided.",
         };
       }
     }
@@ -272,9 +272,44 @@ export class VetAdapterService implements IVetAdapterService {
       }
     }
     /*********************************************************** */
+    //When all params hava been provided
+    if (
+      httpRequest.clinicName &&
+      httpRequest.availability &&
+      httpRequest.state
+    ) {
+      const newArrFilteredWithAllParamProvided = secondArrChange.filter(
+        (item) => {
+          if (
+            item.availability.from === httpRequest.availability?.from &&
+            item.availability.to === httpRequest.availability?.to &&
+            item.state === httpRequest.state &&
+            item.state === httpRequest.state
+          ) {
+            return true;
+          }
+          return false;
+        },
+      );
+
+      if (newArrFilteredWithAllParamProvided.length > 0) {
+        return {
+          statusCode: 200,
+          data: newArrFilteredWithAllParamProvided.sort(),
+        };
+      } else {
+        return {
+          statusCode: 400,
+          BAD_REQUEST: "This clinic does not exist on our database",
+        };
+      }
+    }
+
+    /*********************************************************** */
+
     return {
-      statusCode: 1000,
-      data: data,
+      statusCode: 500,
+      message: "There is no data with those params",
     };
   }
 }
