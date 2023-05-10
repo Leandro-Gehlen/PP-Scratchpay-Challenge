@@ -9,27 +9,27 @@
 - Note: Please use **npm** as a package manager
 
 > git clone https://github.com/Leandro-Gehlen/PP-Scratchpay-Challenge.git </br>
-> npm install
-> npm start
-> make post requests to http://localhost:3000/api/search
+> npm install</br></br>
+> npm start</br></br>
+> make post requests to http://localhost:3000/api/search</br></br>
 
 ---
 
 **Resquest body contract**
 
-> export type IHttpRequest = {
-> category: EnumEntityCategory.DENTAL | EnumEntityCategory.VET;
-> clinicName?: string;
-> state?: string;
-> availability?: AvailabilityType;
-> };
+> export type IHttpRequest = {</br>
+> category: EnumEntityCategory.DENTAL | EnumEntityCategory.VET;</br>
+> clinicName?: string;</br>
+> state?: string;</br>
+> availability?: AvailabilityType;</br>
+> };</br>
 
 **EnumEntityCategory**
 
-> export enum EnumEntityCategory {
-> "DENTAL" = "dental",
-> "VET" = "vet",
-> }
+> export enum EnumEntityCategory {</br>
+> "DENTAL" = "dental",</br>
+> "VET" = "vet",</br>
+> }</br>
 
 ---
 
