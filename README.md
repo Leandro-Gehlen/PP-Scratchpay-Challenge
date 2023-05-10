@@ -42,7 +42,7 @@
 - At the beginning I´ve tried to make this application with TDD. With strict mode on and because I don´t have practice with it, I´ve got stucked.
 - So, I´ve decided to build a decoupled and testable application using Clean Architecture first.
 - Made end to end tests with insominia and the application worked as expected.
-- The design patterns applied was factory, strategy, adapter and repository patterns.
+- The design patterns applied: factory, strategy, adapter and repository patterns.
 - I didn´t make pagination because without a database I will not be able to create a repository to execute each query as I´d like. Both cursor and off-set pagination needs a connection with database to be done. Also, I didn´t have time to mock it.
 - What I did was to add an ID starting with 1 on each response object inside the array, that might help cursor pagination.
 - Also I´ve made changes on object keys on the key:value pairs and standarized on the adapter class.
