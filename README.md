@@ -8,7 +8,7 @@
 
 - Note: Please use **npm** as a package manager
 
-> git clone https://github.com/Leandro-Gehlen/PP-Scratchpay-Challenge.git </br>
+> git clone https://github.com/Leandro-Gehlen/PP-Scratchpay-Challenge.git </br></br>
 > npm install</br></br>
 > npm start</br></br>
 > make post requests to http://localhost:3000/api/search</br></br>
