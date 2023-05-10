@@ -2,7 +2,7 @@ import { Response, Router, Request } from "express";
 import { MakeSearchController } from "../../factories/make-search-controller";
 import { RequestDataValidationMiddleware } from "../../../presentation-layer/middlewares/request-data-validation.middleware";
 export default (router: Router): void => {
-  router.get(
+  router.post(
     "/search",
     RequestDataValidationMiddleware,
     async (req: Request, res: Response) => {
