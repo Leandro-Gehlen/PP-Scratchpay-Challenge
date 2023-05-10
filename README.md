@@ -33,7 +33,7 @@
 
 ---
 
-- See the section End to End test with insominia to know the body of the request that must be sent.
+- See the images folder to see End to End test with insominia to know the body of the request that must be sent.
 - Test the application using insominia or postman
 
 ## General Information about the challenge execution
@@ -41,7 +41,7 @@
 - First I´ve configured husky to run eslint , prettier and jest on each commit.
 - At the beginning I´ve tried to make this application with TDD. With strict mode on and because I don´t have practice with it, I´ve got stucked.
 - So, I´ve decided to build a decoupled and testable application using Clean Architecture first.
-- Made end to end tests with insominia and the application worked as expected.
+- Made end to end tests with insominia and the application worked as expected.(Images folder)
 - The design patterns applied: factory, strategy, adapter and repository patterns.
 - I didn´t make pagination because without a database I will not be able to create a repository to execute each query as I´d like. Both cursor and off-set pagination needs a connection with database to be done. Also, I didn´t have time to mock an offset one.
 - What I did was to add an ID starting with 1 on each response object inside the array, that might help pagination.
@@ -163,7 +163,7 @@
 
 ---
 
-![onlyvet](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/vet-only-category-provided.jpg)
+![onlyvet](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/vet-category-only.jpg)
 
 ---
 
@@ -171,4 +171,8 @@
 
 ---
 
-![onlyvet](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/dental-only-category-provided.jpg)
+![onlyvet](https://raw.githubusercontent.com/Leandro-Gehlen/PP-Scratchpay-Challenge/main/images/dental-category-only.jpg)
+
+(...)
+
+## **Keep following the end to end test on images folder.**
