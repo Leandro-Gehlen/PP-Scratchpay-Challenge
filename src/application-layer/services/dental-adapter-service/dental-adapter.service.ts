@@ -305,10 +305,10 @@ export class DentalAdapterService implements IDentalAdapterService {
     }
 
     /*********************************************************** */
-
+    //Default return
     return {
       statusCode: 500,
-      message: "There is no data with those params",
+      message: "Server error",
     };
   }
 }

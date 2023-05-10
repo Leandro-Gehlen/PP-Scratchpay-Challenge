@@ -309,7 +309,7 @@ export class VetAdapterService implements IVetAdapterService {
 
     return {
       statusCode: 500,
-      message: "There is no data with those params",
+      message: "Server error",
     };
   }
 }
