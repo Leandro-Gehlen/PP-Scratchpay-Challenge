@@ -10,6 +10,28 @@
 
 > git clone https://github.com/Leandro-Gehlen/PP-Scratchpay-Challenge.git </br>
 > npm install
+> npm start
+> make post requests to http://localhost:3000/api/search
+
+---
+
+**Resquest body contract**
+
+> export type IHttpRequest = {
+> category: EnumEntityCategory.DENTAL | EnumEntityCategory.VET;
+> clinicName?: string;
+> state?: string;
+> availability?: AvailabilityType;
+> };
+
+**EnumEntityCategory**
+
+> export enum EnumEntityCategory {
+> "DENTAL" = "dental",
+> "VET" = "vet",
+> }
+
+---
 
 - See the section End to End test with insominia to know the body of the request that must be sent.
 - Test the application using insominia or postman
