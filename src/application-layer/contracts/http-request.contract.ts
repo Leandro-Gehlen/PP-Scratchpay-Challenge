@@ -5,6 +5,6 @@ import {
 export type IHttpRequest = {
   category: EnumEntityCategory.DENTAL | EnumEntityCategory.VET;
   clinicName?: string;
-  stateCode?: string;
+  state?: string;
   availability?: AvailabilityType;
 };

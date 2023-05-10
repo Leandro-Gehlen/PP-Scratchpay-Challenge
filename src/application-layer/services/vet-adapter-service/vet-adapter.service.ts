@@ -11,7 +11,7 @@ export class VetAdapterService implements IVetAdapterService {
     private readonly vetRepositoryInfraLayer: IVetRepositoryInfraLayer,
   ) {}
 
-  //this method prepare data to be paginated(Adapter)
+  //this method prepare data to be filtered(Adapter)
   async exec(httpRequest: IHttpRequest): Promise<IHttpResponse> {
     const data = await this.vetRepositoryInfraLayer.exec();
     /************************** */
@@ -37,7 +37,7 @@ export class VetAdapterService implements IVetAdapterService {
       httpRequest.category === EnumEntityCategory.VET &&
       !httpRequest.availability &&
       !httpRequest.clinicName &&
-      !httpRequest.stateCode
+      !httpRequest.state
     ) {
       return {
         statusCode: 200,
@@ -50,7 +50,7 @@ export class VetAdapterService implements IVetAdapterService {
     if (
       httpRequest.clinicName &&
       !httpRequest.availability &&
-      !httpRequest.stateCode
+      !httpRequest.state
     ) {
       const newArrFilteredByName = secondArrChange.filter((item) => {
         if (item.clinicName === httpRequest.clinicName) {
@@ -75,6 +75,203 @@ export class VetAdapterService implements IVetAdapterService {
     /************************************************************ */
     // Filtered by stateCode only
 
+    if (
+      !httpRequest.clinicName &&
+      !httpRequest.availability &&
+      httpRequest.state
+    ) {
+      const newArrFilteredByState = secondArrChange.filter((item) => {
+        if (item.state === httpRequest.state) {
+          return true;
+        }
+        return false;
+      });
+
+      if (newArrFilteredByState.length > 0) {
+        return {
+          statusCode: 200,
+          data: newArrFilteredByState.sort(),
+        };
+      } else {
+        return {
+          statusCode: 400,
+          BAD_REQUEST: "There is no clinics at this location on our data base.",
+        };
+      }
+    }
+
+    /************************************************************* */
+    // Filtered by availability only
+
+    if (
+      !httpRequest.clinicName &&
+      httpRequest.availability &&
+      !httpRequest.state
+    ) {
+      const newArrFilteredByAvailability = secondArrChange.filter((item) => {
+        if (item.availability.from === httpRequest.availability?.from) {
+          return true;
+        }
+        if (item.availability.to === httpRequest.availability?.to) {
+          return true;
+        }
+        return false;
+      });
+
+      if (newArrFilteredByAvailability.length > 0) {
+        return {
+          statusCode: 200,
+          data: newArrFilteredByAvailability.sort(),
+        };
+      } else {
+        return {
+          statusCode: 400,
+          BAD_REQUEST: "There is no clinics at this location on our data base.",
+        };
+      }
+    }
+
+    /*********************************************************** */
+    //Filtered by name and state
+    if (
+      httpRequest.clinicName &&
+      !httpRequest.availability &&
+      httpRequest.state
+    ) {
+      const newArrFilteredByClinicNameAndState = secondArrChange.filter(
+        (item) => {
+          if (
+            item.clinicName === httpRequest.clinicName ||
+            item.state === httpRequest.state
+          ) {
+            return true;
+          }
+          if (
+            item.clinicName === httpRequest.clinicName &&
+            item.state === httpRequest.state
+          ) {
+            return true;
+          }
+
+          return false;
+        },
+      );
+
+      if (newArrFilteredByClinicNameAndState.length > 0) {
+        return {
+          statusCode: 200,
+          data: newArrFilteredByClinicNameAndState.sort(),
+        };
+      } else {
+        return {
+          statusCode: 400,
+          BAD_REQUEST:
+            "There is no clinics with this name and/or at this location",
+        };
+      }
+    }
+
+    /*********************************************************** */
+    //Filtered by name and availability
+    if (
+      httpRequest.clinicName &&
+      httpRequest.availability &&
+      !httpRequest.state
+    ) {
+      const newArrFilteredByAvailabilityAndName = secondArrChange.filter(
+        (item) => {
+          if (
+            item.availability.from === httpRequest.availability?.from ||
+            item.clinicName === httpRequest.clinicName
+          ) {
+            return true;
+          }
+          if (
+            item.availability.from === httpRequest.availability?.from &&
+            item.clinicName === httpRequest.clinicName
+          ) {
+            return true;
+          }
+          if (
+            item.availability.to === httpRequest.availability?.to ||
+            item.clinicName === httpRequest.clinicName
+          ) {
+            return true;
+          }
+          if (
+            item.availability.to === httpRequest.availability?.to &&
+            item.clinicName === httpRequest.clinicName
+          ) {
+            return true;
+          }
+          return false;
+        },
+      );
+
+      if (newArrFilteredByAvailabilityAndName.length > 0) {
+        return {
+          statusCode: 200,
+          data: newArrFilteredByAvailabilityAndName.sort(),
+        };
+      } else {
+        return {
+          statusCode: 400,
+          BAD_REQUEST:
+            "There is no clinics with this name or/and with this availability",
+        };
+      }
+    }
+    /*********************************************************** */
+    //Filtered by state and availability
+    if (
+      !httpRequest.clinicName &&
+      httpRequest.availability &&
+      httpRequest.state
+    ) {
+      const newArrFilteredByAvailabilityAndState = secondArrChange.filter(
+        (item) => {
+          if (
+            item.availability.from === httpRequest.availability?.from ||
+            item.state === httpRequest.state
+          ) {
+            return true;
+          }
+          if (
+            item.availability.from === httpRequest.availability?.from &&
+            item.state === httpRequest.state
+          ) {
+            return true;
+          }
+          if (
+            item.availability.to === httpRequest.availability?.to ||
+            item.state === httpRequest.state
+          ) {
+            return true;
+          }
+          if (
+            item.availability.to === httpRequest.availability?.to &&
+            item.state === httpRequest.state
+          ) {
+            return true;
+          }
+          return false;
+        },
+      );
+
+      if (newArrFilteredByAvailabilityAndState.length > 0) {
+        return {
+          statusCode: 200,
+          data: newArrFilteredByAvailabilityAndState.sort(),
+        };
+      } else {
+        return {
+          statusCode: 400,
+          BAD_REQUEST:
+            "There is no clinics with this availability and/or within this state",
+        };
+      }
+    }
+    /*********************************************************** */
     return {
       statusCode: 1000,
       data: data,
