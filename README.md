@@ -4,6 +4,31 @@
 
 ---
 
+## Running the project
+
+- Note: Please use **npm** as a package manager
+
+> git clone https://github.com/Leandro-Gehlen/PP-Scratchpay-Challenge.git
+> npm install
+
+- See the section End to End test with insominia to know the body of the request that must be sent.
+- Test the application using insominia or postman
+
+## General Information about the challenge execution
+
+- First I´ve configured husky to run eslint , prettier and jest on each commit.
+- At the beginning I´ve tried to make this application with TDD. With strict mode on and because I don´t have practice with it, I´ve got stucked.
+- So, I´ve decided to build a decoupled and testable application using Clean Architecture first.
+- Made end to end tests with insominia and the application worked as expected.
+- The design patterns applied was factory, strategy, adapter and repository patterns.
+- I didn´t make pagination because without a database I will not be able to create a repository to execute each query as I´d like. Both cursor and off-set pagination needs a connection with database to be done. Also, I didn´t have time to mock it.
+- What I did was to add an ID starting with 1 on each response object inside the array, that might help cursor pagination.
+- Also I´ve made changes on object keys on the key:value pairs and standarized on the adapter class.
+- I´ve mocked the database calls with verifications inside the adapter classes so data returns as expected when every search case.
+- I´m not had time to make unit tests, but the application is totaly testable.
+- Error handling must be improved yet. That might me done when the application is being tested.
+- I´m delivering that way, because time ended up.
+
 ## Preparing the project to this challenge
 
 ### Eslint + Prettier + Husky + Lint-Staged + Jest
@@ -31,8 +56,7 @@
 - This challenge must have just one endpoint, so **I will assum** that the frontend will be sending also the category of the clinic on the request. If it´s a **dental care** or a **vet** category.
 - So I now have my **2 entites**. I also know now that I will need a **strategy service** to know which entity the request is about.
 - I will also need a **validation middleware**. It´s better if I make validations outside and before the controller **and even before I know which kind of entity the request is about**. Remember, controllers should not know about the domain layer.
-- Once the request reachs the controller, I will already know the entity it´s about and also that I have all the params that I need to manage data as requested on the challenge.
-- First, the controller **will call the strategy helper class** that will send the query to the right **use case**. I might use a design pattern on this classes.(application layer with an strategy design pattern applied).
+- First, the controller **will call the strategy pattern helper class** that will send the request to the right **use case**. I I might use a design pattern on this classes.(application layer with an strategy design pattern applied).
 - The use cases will receive as dependency injection instaces of the infra layer concrete classes.(Respecting the Dependency Invertion Principle - D of Solid) and each one of this classes on infra layer will be quering data on a specific way to return the pagination as expected.
 - Remember, every class must have only one concern.(Single Responsability principle - S of Solid)
 - That´s a nice starting point for this challenge. Let´s start.
@@ -66,14 +90,14 @@
 
 ---
 
-> **VetPAginationAdapter**
+> **VetAdapter**
 >
 > - Should implement the pagination
 > - Should return an IHttpResponse with the right pagination applied to the array of VetEntities
 
 ---
 
-> **DentalPaginationAdapter**
+> **DentalAdapter**
 >
 > - Should implement the pagination
 > - Should return an IHttpResponse with the right pagination applied to the array of DentalEntities
@@ -82,14 +106,14 @@
 
 > **VetRepository**
 >
-> -Should receive data and change it´s parameter from "opening" to "availability"
+> -Should receive data.
 > -Should return the new data as an IHttpResponse so pagination can be applied on VetPaginationAdapter class
 
 ---
 
 > **DentalRepository**
 >
-> - Should receive data
+> - Should receive data.
 > - Should return the new data as an IHttpResponse so paginantion can be applied on the DentalPaginationAdapter class
 
 ---
@@ -97,16 +121,19 @@
 > **ResquestDataValidationMiddleware**
 >
 > - Should ensure that at least a category will be received as param on body request.
+> - Should ensure that no empty request reachs the controller
 
 ---
 
 > **ChangeArrKeyHelperFunction**
 >
-> - Should receive a newKey, a oldKey and an array as args and return a new array with those keys exchaged.(Transform opening to availability on vet json data received)
+> - Should receive a newKey, a oldKey and an array as args and return a new array with those keys exchaged.(Transform opening to availability on vet json data received for exemple)
 
 ---
 
 ## Clean Architecture Application Works! (Decoupled and Testable code)
+
+## **End to End tests with insominia**
 
 ---
 
