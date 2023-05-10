@@ -43,12 +43,12 @@
 - So, I´ve decided to build a decoupled and testable application using Clean Architecture first.
 - Made end to end tests with insominia and the application worked as expected.
 - The design patterns applied: factory, strategy, adapter and repository patterns.
-- I didn´t make pagination because without a database I will not be able to create a repository to execute each query as I´d like. Both cursor and off-set pagination needs a connection with database to be done. Also, I didn´t have time to mock it.
-- What I did was to add an ID starting with 1 on each response object inside the array, that might help cursor pagination.
+- I didn´t make pagination because without a database I will not be able to create a repository to execute each query as I´d like. Both cursor and off-set pagination needs a connection with database to be done. Also, I didn´t have time to mock an offset one.
+- What I did was to add an ID starting with 1 on each response object inside the array, that might help pagination.
 - Also I´ve made changes on object keys on the key:value pairs and standarized on the adapter class.
-- I´ve mocked the database calls with verifications inside the adapter classes so data returns as expected when every search case.
-- I´m not had time to make unit tests, but the application is totaly testable.
-- Error handling must be improved yet. That might me done when the application is being tested.
+- I´ve mocked the database calls with verifications inside the adapter classes so data returns as expected when every search case is called.
+- I not had time to make unit tests after the application was built, but the application is totaly testable and decoupled. What is amazing.
+- Error handling must be improved yet. That might me done while the application is being tested.
 - I´m delivering that way, because time ended up.
 
 ## Preparing the project to this challenge
