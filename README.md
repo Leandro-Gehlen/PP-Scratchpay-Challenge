@@ -47,7 +47,7 @@
 - What I did was to add an ID starting with 1 on each response object inside the array, that might help pagination.
 - Also I´ve made changes on object keys on the key:value pairs and standarized on the adapter class.
 - I´ve mocked the database calls with verifications inside the adapter classes so data returns as expected when every search case is called.
-- I not had time to make unit tests after the application was built, but the application is totaly testable and decoupled. What is amazing.
+- I didn´t have time to make unit tests after the application was built, but the application is totaly testable and decoupled. What is amazing.
 - Error handling must be improved yet. That might me done while the application is being tested.
 - I´m delivering that way, because time ended up.
 
